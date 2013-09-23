@@ -1,0 +1,55 @@
+BB817 - Planning and evaluation of biological experiments
+-------------------------
+
+
+Useful R functions
+========================================================
+
+*Owen R. Jones*  
+_jones@biology.sdu.dk_
+
+------
+
+Mathematical functions
+-------------------------
+
+```{r comment = '>', tidy=TRUE, results='markup',eval=FALSE}
+log(x)
+exp(x)
+log(x,n)
+log10(x)
+sqrt(x)
+factorial(x)
+floor(x)
+ceiling(x)
+round(x,digits=n)
+signif(x,digits=n)
+runif(x)
+cos(x)
+sin(x)
+tan(x)
+acos(x)
+asin(x)
+atan(x)
+abs(x)
+```
+
+
+Basic vector functions
+-------------------------
+
+```{r comment = '>', tidy=TRUE, results='markup',eval=FALSE}
+max(x)
+min(x)
+sum(x)
+mean(x)
+median(x)
+range(x)
+var(x)
+cor(x,y)
+sort(x)
+rank(x)
+order(x)
+cumsum(x)
+cumprod(x)
+```

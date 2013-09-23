@@ -1,0 +1,51 @@
+
+Functions [advanced R!]
+-------------------------
+  
+  One of the powerful aspects of R is that you can write your own functions for it. This is useful if we find ourselves going through the same sequence of steps repeatedly in doing data analysis. It saves time and mental effort to take that sequence of steps and bind it together in a single function. It also reduces error because, by invoking the same function every time we don't need to worry about missing steps, or running the steps correctly.
+
+The anatomy of a function is as follows:
+```{r comment = '>',eval = FALSE, results = 'markup'}
+myfunction <- function(argument1, argument2, ... ){
+statements
+return(object)
+}
+```
+
+To make this more clear, I will give a simple example. Here is simple function that returns a vector with two numbers: the **mean** and **length** of an input vector (x):
+
+```{r comment = '>',eval = TRUE, results = 'markup'}
+myfunction <- function(x){
+mv = mean(x)
+n = length(x)
+return(c(mv,n))
+}
+```
+Once I run the above code in R/RStudio, the function is saved into the memory so that I can now run it on any input vector:
+
+```{r comment = '>',eval = TRUE, results = 'markup'}
+x = c(1,7,3,8,9,3,5,2,9)
+myfunction(x)
+```
+
+We could extend the function to report more things and use the **cat** function to print the output to the screen rather than putting it in a vector. The comments (after each # sign) indicate what some of the lines do:
+
+```{r comment = '>',eval = TRUE, results = 'markup'}
+myfunction <- function(x){
+mv = mean(x) #mean
+vv = var(x) #variance
+sdev = sd(x) #standard deviation
+n = length(x) #length of vector
+
+cat("Mean = ",mv,"\n") #the \n syntax makes a new line.
+cat("Variance = ",vv,"\n")
+cat("SD = ",sdev,"\n")
+cat("N = ",n)
+}
+```
+
+This would now produce the following result:
+```{r comment = '>',eval = TRUE, results = 'markup'}
+x = c(1,7,3,8,9,3,5,2,9)
+myfunction(x)
+```

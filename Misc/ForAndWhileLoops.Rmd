@@ -1,0 +1,38 @@
+By altering the above script slightly we could plot a time series of the amount of money we hold with each roll of the dice. I do this in the next piece of code by creating an vector called *moneyTimeSeries* to record the amount of money held after each roll of the dice (Figure 1). The first value of the vector is 100 (the amount of money at the start), and the remaining elements are all as yet unknown so are recorded as a series of *NA*s:
+  
+  ```{r comment = '>' ,echo = TRUE, results = 'markup',fig.cap=('Time series from dice game'), fig.show='asis'}
+moneyStart <- 100
+moneyTimeSeries <- c(moneyStart,rep(NA,50))
+
+for (i in 2:51){
+  if(sample(1:6,1) %in% 1:3){
+    moneyTimeSeries[i] = moneyTimeSeries[i-1] + 10 }else{ moneyTimeSeries[i] <- moneyTimeSeries[i-1] -10}
+}
+plot(moneyTimeSeries, type = "l")
+```
+
+A similar looping function is the **while** loop. This takes approximately the same form as a **for** loop but will continue to run until a condition is NOT met. The syntax is:
+  
+  ```{r comment = '>', eval = FALSE, results = 'markup', tidy=FALSE}
+while(logical condition){commands}
+```
+
+For example, we could program a loop to continue running until the amount of money reaches 0. This code necessarily differs from the **for** loop. It is a bit complicated, but see if you can follow what is going on. The plot produced is shown in Figure 2 and you can see that, by chance, it took about 9000 throws until the money ran out! If you have trouble figuring out the code, try breaking the code apart line-by-line/function-by-function to see what each part is doing:
+  
+  ```{r comment = '>' , echo =-1, results = 'markup',fig.cap=('Time series from the \'while\' loop'), fig.show='asis'}
+set.seed(124)
+moneyStart <- 100
+moneyTimeSeries <- moneyStart
+
+while(moneyTimeSeries[length(moneyTimeSeries)] > 0){
+  
+  if(sample(1:6,1)%in%1:3){newMoney <- moneyTimeSeries[length(moneyTimeSeries)]+10}else{
+    newMoney <- moneyTimeSeries[length(moneyTimeSeries)]-10  
+  }
+  moneyTimeSeries <- c(moneyTimeSeries,newMoney)
+}
+plot(moneyTimeSeries, type = "l")
+```
+
+- *Try altering the code to see what happens if you make it less or more likely to win, and what happens when you change the amounts of money involved.*
+  

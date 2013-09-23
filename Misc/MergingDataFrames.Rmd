@@ -1,0 +1,19 @@
+
+Merging two data frames
+-------------------------
+  
+  In a relational database like Microsoft Access, numerous data tables are joined together with simple rules. For example, one table could have the body weights of individual animals recorded through time, while another could include non-time-varying characteristics like sex and birth year. It might be desirable to link these two together to look at how sex, or birth year affects weight through time. Although R is not a relational database, it has a clever function to perform this basic task. I first invent some data as an example:
+  
+  ```{r comment = '>', eval =T ,results = 'markup'}
+df1 <- data.frame(id = 1:2,sex = c("M","F"), birthyr = c(1990,2003))
+df2 <- data.frame(identity = rep(1:2,each = 5), weight = c(10,14,16,14,17,4,5,7,6,9))
+df1
+df2
+```
+
+We can now combine these data frames into a single data frame using the **merge** function. Using the *by.x* and *by.y* arguments we need to specify the names of the columns by which we want to match. In this case is the ID number of the animal. Note that the first data frame is *x*, and the second one is *y*. Also note that the names of the columns need not be the same. There are some other optional arguments in *merge*, but this is the basic use case:
+  
+  ```{r comment = '>', eval =T ,results = 'markup'}
+newdf <- merge(df1,df2,by.x="id",by.y="identity")
+newdf
+```
