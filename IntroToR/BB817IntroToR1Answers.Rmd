@@ -1,0 +1,76 @@
+Answers to exercises in Handout 1
+========================================================
+```{r comment = '>', eval = TRUE, echo = FALSE}
+setwd("/Users/orj/Documents/Dropbox/Teaching/BB817/IntroToR")
+carni <- read.csv("carnivora.csv",header = TRUE)
+```
+
+**Remember:** make sure you have the carnivora data set loaded into your workspace (using *read.csv*) and named *carni*.
+
+
+Q1. Tabulate the number of species in each Family of the superfamily *Caniformia*.
+-----------
+
+```{r comment = '>', eval = TRUE, results = 'markup'}
+temp1 <- subset(carni,SuperFamily == "Caniformia")
+temp1 <- droplevels(temp1)
+table(temp1$Family)
+```
+
+
+Q2. Using the carnivore data set, produce a box plot featuring female weight (FW) for the *Canidae*, *Felidae* and *Ursidae* together on the same plot.
+-----------
+
+```{r comment = '>', eval = TRUE, results = 'markup', fig.cap=('A box plot for Q2'), fig.show='asis'}
+temp1 <- subset(carni,Family %in% c("Canidae","Felidae","Ursidae"))
+temp1 <- droplevels(temp1)
+plot(temp1$Family, temp1$FW)
+```
+
+
+Q3. Using the carnivore data set, make a table showing the average (mean) birth weight (BW) for Families in Superfamily *Feliformia*. 
+-----------
+
+```{r comment = '>', eval = TRUE, results = 'markup'}
+temp1 <- subset(carni,SuperFamily == "Feliformia")
+temp1 <- droplevels(temp1)
+tapply(temp1$BW, temp1$Family,FUN=mean,na.rm=TRUE)
+```
+
+Q4. Plot the relationship between log female weight (FW) and litter size (LS) in the *Mustelidae*.
+-----------
+
+```{r comment = '>', eval = TRUE, results = 'markup', fig.cap=('The plot for Q4'), fig.show='asis'}
+temp1 <- subset(carni,Family == "Mustelidae")
+plot(log(temp1$FW),temp1$LS)
+```
+
+
+Q5. Identify the largest and smallest (by female weight (FW)) species in the *Viverridae* family. What are their brain sizes (FB)?
+-----------
+
+
+```{r comment = '>', eval = TRUE, results = 'markup'}
+temp1 <- subset(carni,Family == "Viverridae")
+which.min(temp1$FW)
+which.max(temp1$FW)
+temp1[c(27,12), ] #You can read off the brain sizes in the FB column
+```
+
+You could also do it like this:
+  
+```{r comment = '>', eval = TRUE, results = 'markup'}
+temp1 <- subset(carni,Family == "Viverridae")
+x <- c(which.min(temp1$FW),which.max(temp1$FW))
+temp1[x, ]
+```
+
+You can simply look at the output to see that the smallest species (by female weight) is *`r temp1[x[1],"Species"]`* with a brain size of `r temp1[x[1],"FB"]`g. The largest species is *`r temp1[x[2],"Species"]`* with a brain size of `r temp1[x[2],"FB"]`g. 
+
+
+```{r comment = '>', eval=TRUE, echo=FALSE}
+system("pandoc -V papersize:\"a4paper\"  BB817IntroToR1Answers.md -o pdf/BB817IntroToR1Answers.pdf")
+```
+
+
+
