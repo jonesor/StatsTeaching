@@ -15,7 +15,7 @@ Installing R and RStudio
 
 **RStudio** is an "integrated development environment" designed specifically for R. It is not essential to use it, but it makes programming and organising files much easier. I therefore recommend that you install it alongside R.
 
-```{r comment = '>', tidy=TRUE, results='markup',eval=TRUE, echo=FALSE, fig}
+```{r comment = '>', tidy=TRUE, results='markup',eval=TRUE, echo=FALSE}
 setwd("/Users/orj/Documents/Dropbox/Teaching/BB817/IntroToR")
 ```
 
