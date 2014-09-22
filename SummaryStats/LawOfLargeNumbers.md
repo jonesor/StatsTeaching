@@ -1,4 +1,4 @@
-BB817 - Planning and evaluation of biological experiments
+BB839 - Planning and evaluation of biological studies
 -------------------------
 
 Law of Large Numbers
@@ -21,7 +21,6 @@ sample(coinToss, 1)
 
 [1] "Tails"
 
-
 And here is how to simulate 6 coin tosses and make a table of the results. Note, we must use the *replace = TRUE* argument. Please ask if you don't understand why this is necessary.
 
 
@@ -33,9 +32,8 @@ table(outcome)
 ```
 > outcome
 > Heads Tails 
->     3     3
+>     4     2
 ```
-
 
 We can wrap the **table** function with the **barplot** function to produce a simple barplot of the result (Figure 1). You'll probably get different results than me because this is a random process:
 
@@ -45,7 +43,6 @@ barplot(table(outcome), col = c("black", "white"))
 ```
 
 ![Barplot of 6 simulated coin tosses](figure/unnamed-chunk-3.png) 
-
 * Try this several times with small sample sizes and see what happens to the proportions of heads/tails. Consider what the expected outome should be. What do you notice?
 
 * Now increase the sample size and see what happens to the proportions of heads/tails. Consider what the expected outome should be. What do you notice?
@@ -66,7 +63,6 @@ sample(diceRoll, 1)
 
 [1] 1
 
-
 Here's how to do 6 rolls of the dice:
 
 ```r
@@ -79,10 +75,10 @@ table(outcome)
 > 2 3 4 5 6 
 > 1 1 2 1 1
 ```
+Your table will probably look different to this. You may notice that some numbers in the table are missing - in this case the 1 is missing. This is because no 1s were rolled by our virtual dice. 
 
+Now I try doing 90 rolls of the dice. I can set a value for *n* (the number of rolls), and I can also plot a horizontal line at the theoretically expected value of n/6; in this case that is 15 (Figure 2). Before proceeding, can you see why the expected value is n/6?:
 
-
-Now I try doing 1000 rolls of the dice. I can set a value for *n* (the number of rolls), and I can also plot a horizontal line at the theoretically expected value of n/6 (Figure 2):
 
 ```r
 n = 90
@@ -93,11 +89,9 @@ abline(h = n/6)
 
 ![Barplot of 90 simulated dice throws](figure/unnamed-chunk-6.png) 
 
-
-* Try adjusting the code to simulate dice rolls with small (say, 30) and large (say, 600, or 6000) samples. Observe what happens to the proportions, and compare them to the expected value.
+* Try adjusting the code to simulate dice rolls with small (say, 30) and large (say, 600, or 6000, or 9000) samples. Observe what happens to the proportions, and compare them to the expected value.
 
 * You will notice that what would be considered a good sample size for the coin flipping (i.e. it recovers the true probability of 0.5 reasonably well) is not adequate for getting a good estimate of the probabilities for the dice. This is because of the different number of possibilities: as the range of possible outcomes increases, the sample size requirements increase.
-
 
 
 

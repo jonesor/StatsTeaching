@@ -1,4 +1,4 @@
-BB817 - Planning and evaluation of biological experiments
+BB839 - Planning and evaluation of biological studies
 -------------------------
 
 Law of Large Numbers
@@ -53,9 +53,10 @@ Here's how to do 6 rolls of the dice:
 outcome = sample(diceRoll,6,replace = TRUE)
 table(outcome)
 ```
+Your table will probably look different to this. You may notice that some numbers in the table are missing - in this case the 1 is missing. This is because no 1s were rolled by our virtual dice. 
 
+Now I try doing 90 rolls of the dice. I can set a value for *n* (the number of rolls), and I can also plot a horizontal line at the theoretically expected value of n/6; in this case that is 15 (Figure 2). Before proceeding, can you see why the expected value is n/6?:
 
-Now I try doing 1000 rolls of the dice. I can set a value for *n* (the number of rolls), and I can also plot a horizontal line at the theoretically expected value of n/6 (Figure 2):
 ```{r comment = '>', eval=TRUE, echo=TRUE,  tidy=TRUE,fig.cap=('Barplot of 90 simulated dice throws')}
 n = 90
 outcome = sample(diceRoll,n,replace = TRUE)
@@ -63,11 +64,11 @@ barplot(table(outcome))
 abline(h=n/6)
 ```
 
-* Try adjusting the code to simulate dice rolls with small (say, 30) and large (say, 600, or 6000) samples. Observe what happens to the proportions, and compare them to the expected value.
+* Try adjusting the code to simulate dice rolls with small (say, 30) and large (say, 600, or 6000, or 9000) samples. Observe what happens to the proportions, and compare them to the expected value.
 
 * You will notice that what would be considered a good sample size for the coin flipping (i.e. it recovers the true probability of 0.5 reasonably well) is not adequate for getting a good estimate of the probabilities for the dice. This is because of the different number of possibilities: as the range of possible outcomes increases, the sample size requirements increase.
 
 ```{r comment = '>', eval=TRUE, echo=FALSE}
-system("pandoc -V papersize:\"a4paper\"  LawOfLargeNumbers.md -o pdf/BB817LawOfLargeNumber.pdf")
+system("pandoc -V papersize:\"a4paper\"  LawOfLargeNumbers.md -o pdf/BB839LawOfLargeNumbers.pdf")
 ```
 
