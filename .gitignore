@@ -1,3 +1,12 @@
+#Ignore PDF, Excel, Word etc.
+
+.pdf
+.xls
+.xlsx
+.doc
+.docx
+.png
+
 #Ignore HTML, Rdata and Rhistory
 
 *.html
