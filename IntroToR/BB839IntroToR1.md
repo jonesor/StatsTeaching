@@ -1,8 +1,8 @@
-BB817 - Planning and evaluation of biological experiments
+BB839 - Planning and evaluation of biological experiments
 -------------------------
 
 
-Introduction to R - Part 1/2
+Introduction to R - Part 1 of 2
 ========================================================
 
 *Owen R. Jones*  
@@ -13,26 +13,8 @@ _jones@biology.sdu.dk_
 
 **R** is a programming language for data analysis and statistics. It is free and very widely used. One of its strengths is its very wide user base which means that there are hundreds of contributed packages for every concievable type of analysis. The aim of these introductory classes is to give a basic introduction to the programming language as a tool for importing, manipulating, and exploring data. There will be very little 'statistics', but you will be doing statistics using R during subsequent lectures.
 
-
-Installing R
--------------------------
-
-Go to [www.r-project.org](http://www.r-project.org), find the "*Download R*" link and click it. Select a nearby Mirror (i.e. Denmark), go to it, and download the appropriate version for your operating system. There are binaries available for MS Windows, Mac OSX and Linux. The latest version is R-3.0.1 which will run on Mac OS X 10.6 (Snow Leopard) or later, and MS Windows XP and later (including 64-bit versions of Windows).
-
-* The Windows distribution is distributed as an installer R-3.0.1-win.exe.  Just
-run this for a Windows-style installer.
-
-* The Mac version is distributed as an installer package file, R-3.0.1.pkg, which can be installed by double-clicking.
-
-If you have an older operating system you may need to install one of the "legacy" binaries. Contact me if you have trouble with this.
-
-Installing RStudio
--------------------------
-
-
-RStudio is an "integrated development environment" (IDE) for R. It provides a neat interface for R. It allows you to manage your projects and features syntax highlighting, integrated help files, support for producing plots in a number of formats. We will be using RStudio during the course. Like R it is free and open source.
-
-Visit [http://www.rstudio.com/ide/](http://www.rstudio.com/ide/) and follow the links to download the recommended Desktop version.
+Before proceeding you will need to ensure you have intalled R and RStudio on your computer.
+See the PDF on Blackboard for details.
 
 ------
 
@@ -59,7 +41,6 @@ sum(x, na.rm=FALSE)
 sum(x) #This will produce exactly the same output as the above.
 sum(x, FALSE) #So will this, because the order is correct.
 ```
-
 You can get **help** on R functions from within R/RStudio with the **?** and **help.search** commands. **?** requires that you know the function name while *help.search* will search all the available help files for a particular word or phrase. **??** is a synonym for *help.search*:
 
 
@@ -68,7 +49,6 @@ You can get **help** on R functions from within R/RStudio with the **?** and **h
 help.search("bar plot")
 ??"bar plot"
 ```
-
 
 
 In RStudio, the help results will appear in the lower right hand area.
@@ -122,7 +102,6 @@ R features the usual arithmetic operations for addition, subtraction, division, 
 > [1] 15.6
 ```
 
-
 R also has commands for square root (sqrt), raising to powers (\^), taking the absolute value (abs), and rounding (round), natural log (log), antilog (exp), log to base-10 (log10):
 
 
@@ -151,7 +130,7 @@ abs(-23.4)
 ```
 
 ```r
-round(2.35425, digits = 2)
+round(2.35425,digits=2)
 ```
 
 ```
@@ -185,7 +164,6 @@ log10(6)
 
 
 
-
 Objects in R
 -------------------------
 
@@ -198,7 +176,6 @@ Objects are assigned names in R like this. The "<-" command is pronounced "gets"
 x <- 4
 ```
 
-
 To look at any object (function or data), just type its name.
 
 ```r
@@ -208,7 +185,6 @@ x
 ```
 > [1] 4
 ```
-
 
 The main data object types in R are: *vectors*, *data frames*, *lists* and *matrices*. We will focus on the first two of these during this course.
 
@@ -220,26 +196,24 @@ Try the following:
 
 ```r
 A <- 1:5
-B <- c(1, 3, 6, 1, 7, 9)
-C <- seq(1, 10, 2)
-D <- seq(1, 5, 0.1)
-E <- rep(c("M", "F"), each = 3)
-G <- rep(c("M", "F"), c(2, 4))
+B <- c(1,3,6,1,7,9)
+C <- seq(1,10,2)
+D <- seq(1,5,0.1)
+E <- rep(c("M","F"),each = 3)
+G <- rep(c("M","F"),c(2,4))
 ```
-
 
 In these examples, the commands **c**, **seq** and **rep** are *functions*. 
 
 You can *concatonate* vectors using the **c** function. E.g. concatonating the vectors A and B from above:
 
 ```r
-c(A, B)
+c(A,B)  
 ```
 
 ```
 >  [1] 1 2 3 4 5 1 3 6 1 7 9
 ```
-
 
 When functions are applied to vectors, they are applied element-by-element. For example, multiplying a vector will multiply every element in that vector:
 
@@ -253,25 +227,23 @@ B
 ```
 
 ```r
-B * 3
+B*3
 ```
 
 ```
 > [1]  3  9 18  3 21 27
 ```
 
-
 Other manipulations are also done "element-by-element". For example, here we multiply the first element of B by 1, the second by 2, the 3rd by 3 and so on...:
 
 
 ```r
-B * c(1, 2, 3, 4, 5, 6)
+B * c(1,2,3,4,5,6)
 ```
 
 ```
 > [1]  1  6 18  4 35 54
 ```
-
 
 Missing values, infinity and "non-numbers"
 -------------------------
@@ -282,24 +254,22 @@ For example, if we asked for the mean value of a vector of numbers with an NA va
 
 
 ```r
-mean(c(1, 3, 6, 1, 7, 9, NA))
+mean(c(1,3,6,1,7,9,NA))
 ```
 
 ```
 > [1] NA
 ```
 
-
 In this case you need to specify that any NA values should be removed before calculating the mean:
 
 ```r
-mean(c(1, 3, 6, 1, 7, 9, NA), na.rm = TRUE)
+mean(c(1,3,6,1,7,9,NA),na.rm=TRUE)
 ```
 
 ```
 > [1] 4.5
 ```
-
 
 Calculations can sometimes lead to answers that are plus, or minus, infinity. These values are represented in R by Inf or -Inf:
 
@@ -320,7 +290,6 @@ Calculations can sometimes lead to answers that are plus, or minus, infinity. Th
 > [1] -Inf
 ```
 
-
 Other calculations lead to answers that are not numbers, and these are represented by NaN in R:
 
 ```r
@@ -332,13 +301,12 @@ Other calculations lead to answers that are not numbers, and these are represent
 ```
 
 ```r
-Inf - Inf
+Inf-Inf
 ```
 
 ```
 > [1] NaN
 ```
-
 
 
 
@@ -369,19 +337,18 @@ B[3:5]
 ```
 
 ```r
-B[c(1, 3, 5)]
+B[c(1,3,5)]
 ```
 
 ```
 > [1] 1 6 7
 ```
 
-
 You can also subset the elements using *logical operators*. Logical operators are: **==** (equals), **!=** (not equal), **<** (less than), **>** (greater than), **<=** (less than or equal), **>=** (greater than or equal). For example:
 
 
 ```r
-B[B < 7]
+B[B<7]
 ```
 
 ```
@@ -389,18 +356,17 @@ B[B < 7]
 ```
 
 ```r
-B[B <= 7]
+B[B<=7]
 ```
 
 ```
 > [1] 1 3 6 1 7
 ```
 
-
 These logical operators can also be used more simply like this, in which case the output is a **logical vector**:
 
 ```r
-B < 7
+B<7
 ```
 
 ```
@@ -408,13 +374,12 @@ B < 7
 ```
 
 ```r
-B <= 7
+B<=7
 ```
 
 ```
 > [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
 ```
-
 
 Basic information about objects
 -------------------------
@@ -430,7 +395,6 @@ summary(B)
 >    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 >    1.00    1.50    4.50    4.50    6.75    9.00
 ```
-
 
 The functions **max**, **min**, **range**, and **length** are also useful:
 
@@ -466,7 +430,6 @@ length(B)
 > [1] 6
 ```
 
-
 Data frames
 -------------------------
 
@@ -493,7 +456,6 @@ mydata
 > 6    133  30 Female
 ```
 
-
 Data frames can be summarised using the **summary** function:
 
 ```r
@@ -510,7 +472,6 @@ summary(mydata)
 >  Max.   :187   Max.   :32.0
 ```
 
-
 You can also use **str** function, which gives a different set of summary information - the variable names and types, plus the first few elements of the vectors:
 
 ```r
@@ -526,11 +487,10 @@ str(mydata)
 
 
 
-
 They can be subsetted using the square brackets **[]**, or **subset** functions. With the square brackets, the first number specifies the row number, while the second number specifies the column number:
 
 ```r
-mydata[1, ]
+mydata[1,]
 ```
 
 ```
@@ -539,7 +499,7 @@ mydata[1, ]
 ```
 
 ```r
-mydata[, 2]
+mydata[,2]
 ```
 
 ```
@@ -547,7 +507,7 @@ mydata[, 2]
 ```
 
 ```r
-mydata[1, 2]
+mydata[1,2]
 ```
 
 ```
@@ -555,7 +515,7 @@ mydata[1, 2]
 ```
 
 ```r
-subset(mydata, sex == "Female")
+subset(mydata,sex == "Female")
 ```
 
 ```
@@ -564,7 +524,6 @@ subset(mydata, sex == "Female")
 > 4    155  20 Female
 > 6    133  30 Female
 ```
-
 
 Of course it would be incredibly tedious to enter real data in this way. Thankfully, R can import data from a range of different data formats. The most commonly used data format is **comma separated value (CSV)** so I will use that.
 
@@ -578,14 +537,12 @@ So, to set the working directory in Apple OSX you would use something like this 
 ```r
 setwd("/Users/orj/Desktop/IntroToR")
 ```
-
 While in Windows the equivalent command would be something like this (both of the following should work):
 
 ```r
 setwd("C:\\Users\\orj\\Desktop\\IntroToR")
 setwd("C:/Users/orj/Desktop/IntroToR")
 ```
-
 
 Typing the path in can be annoying but there are ways to speed it up. In Windows you can copy paths from the Windows Explorer location/address bar, or you can hold down the Shift key as you right-click the file, and then choose Copy As Path (this works in Windows 7 at least!).
 
@@ -598,29 +555,25 @@ I can check what the current working directory is using the **getwd** function:
 getwd()
 ```
 
-
-On the Blackboard site for BB817 I have put a folder called "Introduction to R". In there you should be able to find a file called "carnivora.csv". Download this to your new working directory. You can check the contents of your working directory with the **list.files** function:
+On the Blackboard site for BB839 I have put a folder called "Introduction to R". In there you should be able to find a file called "carnivora.csv". Download this to your new working directory. You can check the contents of your working directory with the **list.files** function:
 
 
 ```r
 list.files()
 ```
 
-
 You can now import this file into R using the **read.csv** function. The specification of the argument **header = TRUE** signifies that the fiest row of our CSV file contains the column names:
 
 
 ```r
-carni <- read.csv("carnivora.csv", header = TRUE)
+carni <- read.csv("carnivora.csv",header = TRUE)
 ```
-
 
 We can get some basic information on the *carni* data frame using the **summary** function, but also the **dim** and **nrow/ncol** functions:
 
 ```r
 summary(carni)
 ```
-
 
 
 ```r
@@ -647,7 +600,6 @@ ncol(carni)
 > [1] 17
 ```
 
-
 We can find the names of the columns of a data frame with the **names** function:
 
 
@@ -661,7 +613,6 @@ names(carni)
 > [11] "GL"          "BW"          "WA"          "AI"          "LY"         
 > [16] "AM"          "IB"
 ```
-
 The first few columns are to do with the taxonomic placement of the species (Order, SuperFamily, Family, Genus and Species). There then follow several columns of life history variables: FW = Female body weight (kg),
 SW = Average body weight of adult male and adult female (kg), FB = Female brain weight (g), SB = Average brain weight of adult male and adult female (g), LS = Litter size, GL = Gestation length (days), BW = Birth weight (g), WA = Weaning age (days), AI = Age of independance (days), LY = Longevity (months), AM = Age of sexual maturity (days), IB = Inter-birth interval (months).
 
@@ -677,7 +628,6 @@ summary(carni$FW)
 >     0.0     1.2     3.4    18.1    10.4   320.0
 ```
 
-
 Classes in R
 -------------------------
 
@@ -691,7 +641,6 @@ class(carni)
 ```
 > [1] "data.frame"
 ```
-
 
 In this case, the data frame is, unsurprisingly, of class "data.frame". However, the vectors that compose the data frame also have classes. There are several classes of vectors including "integer" (whole numbers), "numeric" (real numbers), "factor" (categorical variables) and "logical" (true/false values).
 
@@ -715,7 +664,6 @@ levels(carni$Family)
 > [6] "Procyonidae" "Ursidae"     "Viverridae"
 ```
 
-
 Tables and summary statistics
 -------------------------
 
@@ -734,12 +682,11 @@ table(carni$Family)
 >           4          32
 ```
 
-
 You can use the function **tapply** ("table apply"), to get more complex summary information. For example, I could ask what the mean female weight (FW) is in each of the families using the argument **FUN=mean**:
 
 
 ```r
-tapply(carni$FW, carni$Family, FUN = mean)
+tapply(carni$FW, carni$Family, FUN=mean)
 ```
 
 ```
@@ -748,7 +695,6 @@ tapply(carni$FW, carni$Family, FUN = mean)
 >     Ursidae  Viverridae 
 >     198.250       2.673
 ```
-
 
 
 Subsetting a data frame
@@ -761,13 +707,11 @@ Subsetting the data frame to only the Canidae:
 ```r
 canids <- subset(carni, Family == "Canidae")
 ```
-
 Subsetting the data frame to include a number of levels of "Family":
 
 ```r
-felidsAndCanids <- subset(carni, Family %in% c("Canidae", "Felidae"))
+felidsAndCanids <- subset(carni, Family %in% c("Canidae","Felidae"))
 ```
-
 
 Note that even though all non felids and canids have been removed from the dataset, the information about the levels is retained in the data frame:
 
@@ -780,7 +724,6 @@ levels(felidsAndCanids$Family)
 > [1] "Ailuridae"   "Canidae"     "Felidae"     "Hyaenidae"   "Mustelidae" 
 > [6] "Procyonidae" "Ursidae"     "Viverridae"
 ```
-
 
 This can be annoying and the best thing to do is to use the **droplevels** function to remove unused factor levels from the data frame:
 
@@ -796,14 +739,12 @@ levels(felidsAndCanids$Family)
 
 
 
-
 More complex subsets can be built up using logical operators and the **&** (and) symbol. For example, here I subset the data to include only species in the Canidae family that also have a female weight of less than or equal to 10kg:
 
 
 ```r
-smallCanids <- subset(carni, Family == "Canidae" & FW <= 10)
+smallCanids <- subset(carni, Family == "Canidae"&FW<=10)
 ```
-
 
 Plotting data
 -------------------------
@@ -817,7 +758,6 @@ plot(log(carni$FW), log(carni$GL))
 
 ![A simple scatter plot](figure/unnamed-chunk-42.png) 
 
-
 How about comparing the log female weights between the Canidae and the Felidae (see Figure 2, below)?
 
 ```r
@@ -825,7 +765,6 @@ plot(felidsAndCanids$Family, log(felidsAndCanids$FW))
 ```
 
 ![A box plot](figure/unnamed-chunk-43.png) 
-
 
 You will see here that R is a *little* bit clever. It knows that Family is a factor variable with 2 levels, so it plots a box and whisker plot (aka a boxplot) instead of trying to plot a scatter plot.
 
@@ -839,7 +778,6 @@ You can save out data frames as \*.csv files that can be read by Microsoft Excel
 write.csv(smallCanids, file = "smallCanids.csv", row.names = FALSE)
 ```
 
-
 Note that the row.names=FALSE argument is to ensure that R does not write the row names (numbers) into the csv file. Take a look at what happens if you omit this argument.
 
 You can also save your entire workspace. This will save everything including all the new objects you have created. You can do this from the RStudio GUI (look in the top right window), or you can use the **save.image** function
@@ -849,14 +787,12 @@ You can also save your entire workspace. This will save everything including all
 save.image("myFirstWorkspace.RData")
 ```
 
-
 Sometimes it is useful to only save *some* of the objects. You could do this by first removing the unwanted objects with the **rm** command, or you could list the objects in the **save** command:
 
 
 ```r
-save(A, B, C, file = "SomeWork.RData")
+save(A,B,C,file = "SomeWork.RData")
 ```
-
 
 These RData files can be loaded into RStudio by using the "Open File" icon (look at the top left of RStudio). Or using the **load** function (remember to define the correct working directory first):
 
@@ -864,7 +800,6 @@ These RData files can be loaded into RStudio by using the "Open File" icon (look
 ```r
 load("SomeWork.RData")
 ```
-
 
 Load will *add* all of the objects in the RData file to your current work space. It will not delete anything, but it could overwrite existing objects if they have the same names - so be careful!
 
@@ -881,6 +816,8 @@ In the next session we'll go into plotting in more detail, and learn about sampl
 Try the following
 -------------------------
 
+*Submit your answers electronically via Blackboard in a single Word or PDF document. Show the question, the code used to find the answer, in addition to the answer. Remember to put your name! (see Blackboard for deadline)*
+
 Q1. Make a table of the number of species in each Family of the Superfamily *Caniformia*.
 
 Q2. Using the carnivore data set, produce a box plot featuring female weight (FW) for the *Canidae*, *Felidae* and *Ursidae* together on the same plot. Hint: you will need to use **subset** and **droplevels** before plotting.
@@ -890,6 +827,8 @@ Q3. Using the carnivore data set, make a table showing the average (mean) birth 
 Q4. Plot the relationship between log female weight (FW) and litter size (LS) in the *Mustelidae*.
 
 Q5. Identify the largest and smallest (by female weight (FW)) species in the *Viverridae* family. What are their brain sizes (FB)? Hint: use subset and the **which.min**/**which.max** functions (use help), and maybe square brackets [ ].
+
+
 
 
 

@@ -1,6 +1,4 @@
-BB817 - Planning and evaluation of biological experiments
--------------------------
-  
+ 
   
 Installing R and RStudio
 ========================================================
@@ -17,16 +15,14 @@ Installing R and RStudio
 
 
 
-
 Installing R
 -------------------------
   
-  Go to [www.r-project.org](http://www.r-project.org), find the "*Download R*" link and click it. Select a nearby Mirror (i.e. Denmark), go to it, and download the appropriate version for your operating system. There are binaries available for MS Windows, Mac OSX and Linux. The latest version is R-3.0.1 which will run on Mac OS X 10.6 (Snow Leopard) or later, and MS Windows XP and later (including 64-bit versions of Windows).
+  Go to [www.r-project.org](http://www.r-project.org), find the "*Download R*" link and click it. Select a nearby Mirror (i.e. Denmark), go to it, and download the appropriate version for your operating system. There are binaries available for MS Windows, Mac OSX and Linux. The latest version is R-3.1.1 which will run on Mac OS X 10.6 (Snow Leopard) or later, and MS Windows XP and later (including 64-bit versions of Windows).
 
-* The Windows distribution is distributed as an installer R-3.0.1-win.exe.  Just
-run this for a Windows-style installer.
+* For the Windows version, click on "Download R for Windows", then click on "base". Then click on "Download R 3.1.1 for Windows". The installation file should then be downloaded.  Just run this for a Windows-style installer.
 
-* The Mac version is distributed as an installer package file, R-3.0.1.pkg, which can be installed by double-clicking.
+* For the Mac version, click on "Download R for (Mac) OS X". The Mac version is distributed as an installer package file, R-3.1.1.pkg, which can be installed by double-clicking. Be careful to pick the right version for your operating system (Mavericks, or Snow Leopard).
 
 If you have an older operating system you may need to install one of the "legacy" binaries. Contact me if you have trouble with this.
 
@@ -40,7 +36,6 @@ Visit [http://www.rstudio.com/ide/](http://www.rstudio.com/ide/) and follow the 
 
 
 ![R Studio](figure/rstudioSmall.png)
-
 
 
 

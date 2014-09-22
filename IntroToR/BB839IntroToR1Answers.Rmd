@@ -1,7 +1,7 @@
 Answers to exercises in Handout 1
 ========================================================
 ```{r comment = '>', eval = TRUE, echo = FALSE}
-setwd("/Users/orj/Documents/Dropbox/Teaching/BB817/IntroToR")
+setwd("/Users/orj/Documents/StatsTeaching/IntroToR")
 carni <- read.csv("carnivora.csv",header = TRUE)
 ```
 
@@ -69,7 +69,7 @@ You can simply look at the output to see that the smallest species (by female we
 
 
 ```{r comment = '>', eval=TRUE, echo=FALSE}
-system("pandoc -V papersize:\"a4paper\"  BB817IntroToR1Answers.md -o pdf/BB817IntroToR1Answers.pdf")
+system("pandoc -V papersize:\"a4paper\"  BB839IntroToR1Answers.md -o pdf/BB839IntroToR1Answers.pdf")
 ```
 
 

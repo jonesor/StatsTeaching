@@ -1,8 +1,8 @@
-BB817 - Planning and evaluation of biological experiments
+BB839 - Planning and evaluation of biological experiments
 -------------------------
 
 
-Introduction to R - Part 1/2
+Introduction to R - Part 1 of 2
 ========================================================
 
 *Owen R. Jones*  
@@ -13,26 +13,8 @@ _jones@biology.sdu.dk_
 
 **R** is a programming language for data analysis and statistics. It is free and very widely used. One of its strengths is its very wide user base which means that there are hundreds of contributed packages for every concievable type of analysis. The aim of these introductory classes is to give a basic introduction to the programming language as a tool for importing, manipulating, and exploring data. There will be very little 'statistics', but you will be doing statistics using R during subsequent lectures.
 
-
-Installing R
--------------------------
-
-Go to [www.r-project.org](http://www.r-project.org), find the "*Download R*" link and click it. Select a nearby Mirror (i.e. Denmark), go to it, and download the appropriate version for your operating system. There are binaries available for MS Windows, Mac OSX and Linux. The latest version is R-3.0.1 which will run on Mac OS X 10.6 (Snow Leopard) or later, and MS Windows XP and later (including 64-bit versions of Windows).
-
-* The Windows distribution is distributed as an installer R-3.0.1-win.exe.  Just
-run this for a Windows-style installer.
-
-* The Mac version is distributed as an installer package file, R-3.0.1.pkg, which can be installed by double-clicking.
-
-If you have an older operating system you may need to install one of the "legacy" binaries. Contact me if you have trouble with this.
-
-Installing RStudio
--------------------------
-
-
-RStudio is an "integrated development environment" (IDE) for R. It provides a neat interface for R. It allows you to manage your projects and features syntax highlighting, integrated help files, support for producing plots in a number of formats. We will be using RStudio during the course. Like R it is free and open source.
-
-Visit [http://www.rstudio.com/ide/](http://www.rstudio.com/ide/) and follow the links to download the recommended Desktop version.
+Before proceeding you will need to ensure you have intalled R and RStudio on your computer.
+See the PDF on Blackboard for details.
 
 ------
 
@@ -290,7 +272,7 @@ I can check what the current working directory is using the **getwd** function:
 getwd()
 ```
 
-On the Blackboard site for BB817 I have put a folder called "Introduction to R". In there you should be able to find a file called "carnivora.csv". Download this to your new working directory. You can check the contents of your working directory with the **list.files** function:
+On the Blackboard site for BB839 I have put a folder called "Introduction to R". In there you should be able to find a file called "carnivora.csv". Download this to your new working directory. You can check the contents of your working directory with the **list.files** function:
 
 ```{r comment = '>', eval = FALSE}
 list.files()
@@ -456,6 +438,8 @@ In the next session we'll go into plotting in more detail, and learn about sampl
 Try the following
 -------------------------
 
+*Submit your answers electronically via Blackboard in a single Word or PDF document. Show the question, the code used to find the answer, in addition to the answer. Remember to put your name! (see Blackboard for deadline)*
+
 Q1. Make a table of the number of species in each Family of the Superfamily *Caniformia*.
 
 Q2. Using the carnivore data set, produce a box plot featuring female weight (FW) for the *Canidae*, *Felidae* and *Ursidae* together on the same plot. Hint: you will need to use **subset** and **droplevels** before plotting.
@@ -467,6 +451,9 @@ Q4. Plot the relationship between log female weight (FW) and litter size (LS) in
 Q5. Identify the largest and smallest (by female weight (FW)) species in the *Viverridae* family. What are their brain sizes (FB)? Hint: use subset and the **which.min**/**which.max** functions (use help), and maybe square brackets [ ].
 
 
+
+
+
 ```{r comment = '>', eval=TRUE, echo=FALSE}
-system("pandoc -V papersize:\"a4paper\"  BB817IntroToR1.md -o pdf/BB817IntroToR1.pdf")
+system("pandoc -V papersize:\"a4paper\"  BB839IntroToR1.md -o pdf/BB839IntroToR1.pdf")
 ```
