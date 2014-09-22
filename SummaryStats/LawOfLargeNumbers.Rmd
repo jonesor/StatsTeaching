@@ -13,14 +13,16 @@ The **law of large numbers** is one of the most important ideas in probability. 
 ----------
 
 First, as a reminder from the Intro to R sessions, here's how to simulate a coin toss in R.
-```{r comment = '>', eval=TRUE, echo=TRUE, results='asis', tidy=TRUE}
+```{r comment = '>', eval=TRUE, echo=-1, results='asis', tidy=TRUE}
+set.seed(20)
 coinToss <- c("Heads","Tails")
 sample(coinToss,1)
 ```
 
 And here is how to simulate 6 coin tosses and make a table of the results. Note, we must use the *replace = TRUE* argument. Please ask if you don't understand why this is necessary.
 
-```{r comment = '>', eval=TRUE, echo=TRUE,  tidy=TRUE}
+```{r comment = '>', eval=TRUE, echo=-1,  tidy=TRUE}
+set.seed(25)
 outcome = sample(coinToss,6,replace = TRUE)
 table(outcome)
 ```

@@ -32,7 +32,7 @@ table(outcome)
 ```
 > outcome
 > Heads Tails 
->     4     2
+>     3     3
 ```
 
 We can wrap the **table** function with the **barplot** function to produce a simple barplot of the result (Figure 1). You'll probably get different results than me because this is a random process:
